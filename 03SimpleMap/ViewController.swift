@@ -13,7 +13,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     
-    var points = [MKPointAnnotation]()
+    var points = [AnnotationData]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,31 +39,37 @@ class ViewController: UIViewController, MKMapViewDelegate {
         
         
         //annotation set
-        let ann = MKPointAnnotation()
-        ann.coordinate = center
-        ann.title = "동의과학대학교"
-        ann.subtitle = "미래관"
-        points.append(ann)
+//        let ann = MKPointAnnotation()
+//        ann.coordinate = center
+//        ann.title = "동의과학대학교"
+//        ann.subtitle = "미래관"
+//        points.append(ann)
+        let ann1 = AnnotationData(coordinate: center, title: "동의과학대학교", subtitle: "미래관")
+        points.append(ann1)
         
         //2
-        let ann2 = MKPointAnnotation()
-        ann2.coordinate.latitude = 35.161167
-        ann2.coordinate.longitude = 129.064525
-        ann2.title = "토포필리아센트럴"
-        ann2.subtitle = "우리집"
+//        let ann2 = MKPointAnnotation()
+//        ann2.coordinate.latitude = 35.161167
+//        ann2.coordinate.longitude = 129.064525
+//        ann2.title = "토포필리아센트럴"
+//        ann2.subtitle = "우리집"
+//        points.append(ann2)
+        let ann2 = AnnotationData(coordinate: CLLocationCoordinate2D(latitude: 35.161167, longitude: 129.064524), title: "토포필리아센트럴", subtitle: "우리집")
         points.append(ann2)
         
-        let ann3 = MKPointAnnotation()
-        ann3.coordinate.longitude = 128.943159
-        ann3.coordinate.latitude = 35.105746
-        ann3.title = "을숙도"
-        ann3.subtitle = "경치 좋은 영도 맛집"
+//        let ann3 = MKPointAnnotation()
+//        ann3.coordinate.longitude = 128.943159
+//        ann3.coordinate.latitude = 35.105746
+//        ann3.title = "을숙도"
+//        ann3.subtitle = "경치 좋은 영도 맛집"
+//        points.append(ann3)
+        let ann3 = AnnotationData(coordinate: CLLocationCoordinate2D(latitude: 35.105746, longitude: 128.943159), title: "을숙도", subtitle: "어디지")
         points.append(ann3)
         
         //PointAnnotation add
         //mapView.addAnnotations([ann, ann2])
         //모든 핀을 다 보여줌
-        mapView.showAnnotations([ann, ann2, ann3], animated: true)
+        mapView.showAnnotations(points, animated: true)
         
         //35.161167, 129.064525 (우리집)
     }
@@ -92,8 +98,17 @@ class ViewController: UIViewController, MKMapViewDelegate {
         if annotationView == nil {
             annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView!.canShowCallout = true
-            annotationView?.pinTintColor = UIColor.blue
+            //annotationView?.pinTintColor = UIColor.blue
             annotationView?.animatesDrop = true
+            
+            if annotation.title == "동의과학대학교" {
+                annotationView?.pinTintColor = UIColor.blue
+                annotationView?.setSelected(true, animated: false)
+            } else if annotation.title == "토포필리아센트럴" {
+                annotationView?.pinTintColor = UIColor.red
+            } else if annotation.title == "을숙도" {
+                annotationView?.pinTintColor = UIColor.black
+            }
             
             let btn = UIButton(type: .detailDisclosure)
             annotationView?.rightCalloutAccessoryView = btn
@@ -111,8 +126,12 @@ class ViewController: UIViewController, MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        let a = UIAlertController(title: "title", message: "sub", preferredStyle: .actionSheet)
-        view.rightCalloutAccessoryView = UIAlertAction(
+        let alertController = UIAlertController(title: "title", message: "sub", preferredStyle: .actionSheet)
+        
+        let action = UIAlertAction(title: "OK", style: .default)
+        
+        alertController.addAction(action)
+        self.present(alertController, animated: true, completion: nil)
     }
     
 }
