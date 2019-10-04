@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E5BE023234711DE002DBD62 /* PinData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E5BE022234711DE002DBD62 /* PinData.plist */; };
 		4E5DEBFB233DD4CF0016F4F1 /* AnnotationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5DEBFA233DD4CF0016F4F1 /* AnnotationData.swift */; };
 		4E5E1672233C80CC002BE556 /* cat.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4E5E1671233C80CC002BE556 /* cat.jpeg */; };
 		4E73E7A52334968B0002E2EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E73E7A42334968B0002E2EB /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E5BE022234711DE002DBD62 /* PinData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PinData.plist; sourceTree = "<group>"; };
 		4E5DEBFA233DD4CF0016F4F1 /* AnnotationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationData.swift; sourceTree = "<group>"; };
 		4E5E1671233C80CC002BE556 /* cat.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat.jpeg; sourceTree = "<group>"; };
 		4E73E7A12334968B0002E2EB /* 03SimpleMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 03SimpleMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +72,7 @@
 				4E73E7AB233496930002E2EB /* Assets.xcassets */,
 				4E73E7AD233496930002E2EB /* LaunchScreen.storyboard */,
 				4E73E7B0233496930002E2EB /* Info.plist */,
+				4E5BE022234711DE002DBD62 /* PinData.plist */,
 			);
 			path = 03SimpleMap;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E5E1672233C80CC002BE556 /* cat.jpeg in Resources */,
+				4E5BE023234711DE002DBD62 /* PinData.plist in Resources */,
 				4E73E7AF233496930002E2EB /* LaunchScreen.storyboard in Resources */,
 				4E73E7AC233496930002E2EB /* Assets.xcassets in Resources */,
 				4E73E7AA2334968B0002E2EB /* Main.storyboard in Resources */,
